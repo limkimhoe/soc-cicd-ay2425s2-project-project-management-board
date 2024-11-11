@@ -30,6 +30,7 @@ model Person {
   email  String           @unique
   name   String
   avatar String?
+  password
   tasks  TaskAssignment[]
 }
 
