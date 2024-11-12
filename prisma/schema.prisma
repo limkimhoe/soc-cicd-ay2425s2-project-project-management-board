@@ -12,7 +12,6 @@ model Task {
   id       Int              @id @default(autoincrement())
   name     String
   statusId Int
-  fieldA  String?
   status   Status           @relation(fields: [statusId], references: [id])
   persons  TaskAssignment[]
 }
@@ -37,7 +36,6 @@ model TaskAssignment {
   assignedAt DateTime @default(now())
   person     Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
   task       Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
-  fieldA  String?
 
   @@id([taskId, personId], name: "assignmentId")
 }
